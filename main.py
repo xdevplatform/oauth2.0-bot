@@ -4,11 +4,9 @@ import os
 import re
 import json
 import requests
-import tweepy
 import redis
-from requests.auth import AuthBase, HTTPBasicAuth
-from requests_oauthlib import OAuth2Session, TokenUpdated
-from flask import Flask, request, redirect, session, url_for, render_template
+from requests_oauthlib import OAuth2Session
+from flask import Flask, redirect, session
 
 
 r = redis.from_url(os.environ["REDIS_URL_DOGS"])
@@ -23,8 +21,10 @@ auth_url = "https://twitter.com/i/oauth2/authorize"
 token_url = "https://api.twitter.com/2/oauth2/token"
 redirect_uri = os.environ.get("REDIRECT_URI")
 
+
 # Set the scopes
 scopes = ["tweet.read", "users.read", "tweet.write", "offline.access"]
+
 
 # Create a code verifier
 code_verifier = base64.urlsafe_b64encode(os.urandom(30)).decode("utf-8")
