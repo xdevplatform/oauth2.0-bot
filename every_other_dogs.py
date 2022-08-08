@@ -1,5 +1,4 @@
-import main
-import redis
+import main 
 import json
 import os
 
