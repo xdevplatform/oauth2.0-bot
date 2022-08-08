@@ -18,4 +18,4 @@ This code sample will allows you to make a bot similar to [@Factual__Dog](https:
 
 
 ## Tutorial 
-To learn more about this code sample check out [our tutorial which walks you through the steps to create this bot]().
+To learn more about this code sample, check out [our tutorial which walks you through the steps to create this bot]().
