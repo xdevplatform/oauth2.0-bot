@@ -1,7 +1,7 @@
 import main 
 import json
 import os
-
+from requests.auth import HTTPBasicAuth
 
 twitter = main.make_token()
 client_id = os.environ.get("CLIENT_ID")
@@ -13,10 +13,11 @@ t = main.r.get("token")
 bb_t = t.decode("utf8").replace("'", '"')
 data = json.loads(bb_t)
 
+auth = HTTPBasicAuth(client_id, client_secret)
 
 refreshed_token = twitter.refresh_token(
     client_id=client_id,
-    client_secret=client_secret,
+    auth=auth,
     token_url=token_url,
     refresh_token=data["refresh_token"],
 )
